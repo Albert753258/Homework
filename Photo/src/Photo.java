@@ -2,7 +2,7 @@ public class Photo {
         public String Size;
         public String Resolution;
         public String GPS;
-        public String Date;
+        public int Date;
 
         public String getSize() {
                 return Size;
@@ -24,18 +24,18 @@ public class Photo {
                 return GPS;
         }
 
-        public void setGPS() {
-                this.GPS = GPS;
+        public void setGPS(String GPS) {
+                this.GPS = this.GPS;
         }
-        public String getDate(){
+        public int getDate(){
                 return Date;
         }
-        public void setDate(){
+        public void setDate(int Date){
                 this.Date = Date;
         }
 
         public Photo(String Size, String Resolution,
-                       String GPS, String Date) {
+                       String GPS, int Date) {
                 this.Size = Size;
                 this.Resolution = Resolution;
                 this.GPS = GPS;

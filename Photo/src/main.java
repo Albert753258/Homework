@@ -11,11 +11,11 @@ public class main {
         List<Photo> photos = new ArrayList<Photo>();
         while(true){
             command = scanner.nextLine();
-            if(command.equals("Create")){
+            if(command.equals("create")){
                 photo = createPhoto();
                 photos.add(photo);
             }
-            else if(command.equals("Find")){
+            else if(command.equals("find")){
                 Photo photo1 = findCurrentPhoto(photos);
                 if(photo1 == null){
                     System.out.println("Now such photo");
@@ -29,9 +29,13 @@ public class main {
                     System.out.println(photo.getDate());
                 }
             }
+            else if(command.equals("change")) {
+                changeDate(photo);
+            }
             else if(command.equals("help")){
-                System.out.println("To create new photo type `Create`");
-                System.out.println("To find photo type `Find`");
+                System.out.println("To create new photo type `create`");
+                System.out.println("To find photo type `find`");
+                System.out.println("To change photo type `change`");
             }
             else {
                 System.out.println("No such command; type help");
@@ -40,10 +44,10 @@ public class main {
     }
 
     public static Photo findCurrentPhoto(List<Photo> photos) {
-        System.out.println("Enter date when did you take this photo");
+        System.out.println("Enter size of this photo");
         String string = scanner.nextLine();
         for(Photo photo:photos){
-            if(photo.getDate().equals(string)){
+            if(photo.getSize().equals(string)){
                 return photo;
             }
         }
@@ -60,8 +64,14 @@ public class main {
         System.out.println("Enter where did you take this photo");
         String GPS = scanner.nextLine();
         System.out.println("Enter date when did you take this photo");
-        String Date = scanner.nextLine();
+        int Date = scanner.nextInt();
         Photo photo = new Photo(Size,Resolution,GPS,Date);
         return photo;
+    }
+    public static int changeDate(Photo photo) {
+        System.out.println("Enter when did you take this photo");
+        int Date = scanner.nextInt();
+        photo.setDate(Date);
+        return Date;
     }
 }
