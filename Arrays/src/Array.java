@@ -17,7 +17,7 @@ public class Array {
         String longarrayString = Arrays.toString(longarray(longarray));
         System.out.print("Long array:   ");
         System.out.println(longarrayString);
-        String doublearrayString = Arrays.toString(longarray(doublearray));
+        String doublearrayString = Arrays.toString(doublearray(doublearray));
         System.out.print("Double array:   ");
         System.out.println(doublearrayString);
         String booleanarrayString = Arrays.toString(booleanarray(booleanarray));
@@ -39,7 +39,7 @@ public class Array {
         }
         return longarray;
     }
-    public static double[] longarray(double doublearray[]) {
+    public static double[] doublearray(double doublearray[]) {
         for (int q = 0; q < doublearray.length; q++){
             Random random = new Random();
             doublearray[q] = random.nextDouble();
