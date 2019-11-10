@@ -56,8 +56,7 @@ public class Main {
                 System.out.println("Введите номер машины");
                 line = sc.nextLine();
                 Owner owner = Informato.findCarOwner(cars, line);
-                System.out.println(owner);
-
+                System.out.println(Informato.getOwnerInfo(owner));
             }
         }
     }

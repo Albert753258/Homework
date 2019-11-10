@@ -9,6 +9,10 @@ public class Informato {
         numberOfCallsCarInfo++;
         return "" + car.getNumber() + " " + car.getMarkaaa() + car.getProduction();
     }
+    public static String getOwnerInfo(Owner owner){
+        numberOfCallsOwnerInfo++;
+        return "" + owner.getName() + " " + owner.getSurname();
+    }
 
     public static Car findCar(List<Car> cars, String line) {
         for(Car car: cars){
