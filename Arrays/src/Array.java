@@ -10,8 +10,12 @@ public class Array {
         doublearray = new double[80];
         int[] intarray1 = intArrayCreator(intarray);
         int[] intarray2 = bubbleSort(intarray1);
+
         for (int i = 0; i < intarray2.length; i ++){
-            System.out.print(intarray1[i] + " ");
+            System.out.print(intarray2[i] + " ");
+        }
+        for (int i = 0; i < intarray2.length; i ++){
+            System.out.print(intarray2[i] + " ");
         }
     }
     public static int[] bubbleSort(int[] intarray1){
@@ -19,11 +23,11 @@ public class Array {
         int j;
         while (!sorted){
             sorted = true;
-            for (int i = 0; i < intarray1.length - 1; i ++){
+            for (int i = intarray1.length - 1; i < 0; i ++){
                 if (intarray1[i] > intarray1[i + 1]){
                     j = intarray1[i];
-                    intarray1[i] = intarray1[i + 1];
-                    intarray1[i + 1] = j;
+                    intarray1[i] = intarray1[i - 1];
+                    intarray1[i - 1] = j;
                     sorted = false;
                 }
             }
@@ -38,21 +42,21 @@ public class Array {
         return intarray;
     }
 
-    public static long[] longarray(long longarray[]) {
+    public static long[] longArrayCreator(long longarray[]) {
         for (int q = 0; q < longarray.length; q++){
             Random random = new Random();
             longarray[q] = random.nextInt();
         }
         return longarray;
     }
-    public static double[] doublearray(double doublearray[]) {
+    public static double[] doubleArrayCreator(double doublearray[]) {
         for (int q = 0; q < doublearray.length; q++){
             Random random = new Random();
             doublearray[q] = random.nextDouble();
         }
         return doublearray;
     }
-    public static boolean[] booleanarray(boolean booleanarray[]) {
+    public static boolean[] booleanArrayCreator(boolean booleanarray[]) {
         for (int q = 0; q < booleanarray.length; q++){
             Random random = new Random();
             booleanarray[q] = random.nextBoolean();
