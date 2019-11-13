@@ -21,12 +21,12 @@ public class main {
                     System.out.println("Now such photo");
                 }
                 else {
-                    System.out.print(photo.getSize());
+                    System.out.print(photo1.getSize());
                     System.out.println("MB");
-                    System.out.print(photo.getResolution());
+                    System.out.print(photo1.getResolution());
                     System.out.println(" Megapixels");
-                    System.out.println(photo.getGPS());
-                    System.out.println(photo.getDate());
+                    System.out.println(photo1.getGPS());
+                    System.out.println(photo1.getDate());
                 }
             }
             else if(command.equals("change")) {
