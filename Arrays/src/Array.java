@@ -1,30 +1,36 @@
-import java.util.Arrays;
 import java.util.Random;
 
 public class Array {
     public static void main(String[] args) {
-        int intarray[];
+        int intarray[] = new int[15];
         long longarray[];
         double doublearray[];
         boolean booleanarray[];
-        intarray = new int[15];
         longarray = new long[100];
         doublearray = new double[80];
-        booleanarray = new boolean[10];
-        String intarrayString = Arrays.toString(intarray(intarray));
-        System.out.print("Int array:   ");
-        System.out.println(intarrayString);
-        String longarrayString = Arrays.toString(longarray(longarray));
-        System.out.print("Long array:   ");
-        System.out.println(longarrayString);
-        String doublearrayString = Arrays.toString(doublearray(doublearray));
-        System.out.print("Double array:   ");
-        System.out.println(doublearrayString);
-        String booleanarrayString = Arrays.toString(booleanarray(booleanarray));
-        System.out.print("Boolean array:   ");
-        System.out.print(booleanarrayString);
+        int[] intarray1 = intArrayCreator(intarray);
+        int[] intarray2 = bubbleSort(intarray1);
+        for (int i = 0; i < intarray2.length; i ++){
+            System.out.print(intarray1[i] + " ");
+        }
     }
-    public static int[] intarray(int intarray[]) {
+    public static int[] bubbleSort(int[] intarray1){
+        boolean sorted = false;
+        int j;
+        while (!sorted){
+            sorted = true;
+            for (int i = 0; i < intarray1.length - 1; i ++){
+                if (intarray1[i] > intarray1[i + 1]){
+                    j = intarray1[i];
+                    intarray1[i] = intarray1[i + 1];
+                    intarray1[i + 1] = j;
+                    sorted = false;
+                }
+            }
+        }
+        return intarray1;
+    }
+    public static int[] intArrayCreator(int intarray[]) {
         for (int q = 0; q < intarray.length; q++){
             Random random = new Random();
             intarray[q] = random.nextInt();
