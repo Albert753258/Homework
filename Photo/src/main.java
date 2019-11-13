@@ -10,7 +10,9 @@ public class main {
         Photo photo = null;
         List<Photo> photos = new ArrayList<Photo>();
         while(true){
-            command = scanner.nextLine();
+            Scanner scanner1;
+            scanner1 = new Scanner(System.in);
+            command = scanner1.nextLine();
             if(command.equals("create")){
                 photo = createPhoto();
                 photos.add(photo);
@@ -24,7 +26,7 @@ public class main {
                     System.out.print(photo1.getSize());
                     System.out.println("MB");
                     System.out.print(photo1.getResolution());
-                    System.out.println(" Megapixels");
+                    System.out.println(" MegaPixels");
                     System.out.println(photo1.getGPS());
                     System.out.println(photo1.getDate());
                 }
