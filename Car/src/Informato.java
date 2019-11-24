@@ -1,5 +1,3 @@
-package lesson2410;
-
 import java.util.List;
 
 public class Informato {
@@ -7,7 +5,7 @@ public class Informato {
     private static int numberOfCallsOwnerInfo = 0;
     public static String getCarInfo(Car car){
         numberOfCallsCarInfo++;
-        return "" + car.getNumber() + " " + car.getMarkaaa() + car.getProduction();
+        return "" + car.getNumber() + " " + car.getMarkaaa();
     }
     public static String getOwnerInfo(Owner owner){
         numberOfCallsOwnerInfo++;

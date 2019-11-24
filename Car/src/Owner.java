@@ -1,17 +1,14 @@
-package lesson2410;
-
 import java.sql.Date;
 
 public class Owner {
     private String name;
     private String surname;
-    private Date birthDate;
     private int numberOfCars;
 
-    public Owner(String name, String surname, Date birthDate) {
+    public Owner(String name, String surname) {
         this.name = name;
         this.surname = surname;
-        this.birthDate = birthDate;
+
         this.numberOfCars = 0;
     }
 
@@ -29,14 +26,6 @@ public class Owner {
 
     public void setSurname(String surname) {
         this.surname = surname;
-    }
-
-    public Date getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
     }
 
     public int getNumberOfCars() {
