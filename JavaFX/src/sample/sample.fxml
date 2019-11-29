@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+      <children>
+         <TextField fx:id="random_text" layoutX="50.0" layoutY="50.0" prefHeight="100.0" prefWidth="200.0" />
+         <Button fx:id="button" layoutX="50.0" layoutY="200" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Enter text" />
+         <Button fx:id="button1" layoutX="150.0" layoutY="200" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Reset" />
+      </children>
+   </Pane>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+
+</GridPane>
