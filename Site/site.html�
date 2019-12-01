@@ -1,0 +1,11 @@
+<html>
+  <head>
+    <title>Albert's site</title>
+    <link href="external.css" rel="stylesheet">
+  </head>
+  <body>
+    <h1 class="learned-ok">Этот сайт сделал Альберт</h1>
+    <p>Это мем </p>
+    <img src="mem.png">
+  </body>
+</html>
