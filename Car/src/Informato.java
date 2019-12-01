@@ -5,7 +5,7 @@ public class Informato {
     private static int numberOfCallsOwnerInfo = 0;
     public static String getCarInfo(Car car){
         numberOfCallsCarInfo++;
-        return "" + car.getNumber() + " " + car.getMarkaaa();
+        return "" + car.getNumber();
     }
     public static String getOwnerInfo(Owner owner){
         numberOfCallsOwnerInfo++;
@@ -29,10 +29,10 @@ public class Informato {
         }
         return null;
     }
-    public static Owner findCarOwner(List<Car> cars, String line){
-        for(Car car: cars){
-            if(car.getNumber().equals(line)){
-               return car.getOwner();
+    public static Owner findOwnerByNumber(List<Owner> owners, long temp){
+        for(Owner owner: owners){
+            if(owner.getNumber() == (temp)){
+               return owner;
             }
         }
         return null;

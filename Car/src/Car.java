@@ -3,18 +3,16 @@ import java.sql.Date;
 public class Car {
     private String number;
     private String markaaa;
-    private Owner owner;
+    private long numberOfOwner;
 
     public Car(String number, String markaaa) {
         this.number = number;
         this.markaaa = markaaa;
-        this.owner = null;
     }
 
-    public Car(String number, String markaaa, Date production, Owner owner) {
+    public Car(String number, long numberOfOwner) {
         this.number = number;
-        this.markaaa = markaaa;
-        this.owner = owner;
+        this.numberOfOwner = numberOfOwner;
     }
 
     public Car(String number) {
@@ -37,11 +35,11 @@ public class Car {
         this.markaaa = markaaa;
     }
 
-    public Owner getOwner() {
-        return owner;
+    public long getNumberOfOwner() {
+        return numberOfOwner;
     }
 
-    public void setOwner(Owner owner) {
-        this.owner = owner;
+    public void setNumberOfOwner(long numberOfOwner) {
+        this.numberOfOwner = numberOfOwner;
     }
 }

@@ -5,12 +5,14 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
+    public static PrintWriter printWriter;
     public static List<Car> cars = new ArrayList<>();
     public static List<Owner> owners = new ArrayList<>();
-    public static final int JOURNAL_CAPACITY = 1000;
     public static Scanner sc = new Scanner(System.in);
+    public static FileWriter fileWriter1;
 
     public static void main(String[] args) throws IOException {
+        long number = 1;
         loadOwners();
         loadCars();
         String line;
@@ -37,9 +39,9 @@ public class Main {
                 line = sc.nextLine();
                 System.out.println("Фамилия");
                 String l = sc.nextLine();
-                Owner owner = new Owner(line,l);
+                Owner owner = new Owner(line,l, number);
                 owners.add(owner);
-                writeOwners(owners);
+                writeOwners(owner);
             }
             else if(line.equals("3")){
                 System.out.println("Введите номер");
@@ -56,74 +58,68 @@ public class Main {
                 System.out.println("Введите имя владельца");
                 line = sc.nextLine();
                 Owner owner = Informato.findOwner(owners,line);
+                long temp = owner.getNumber();
                 System.out.println("Введите номер машины");
                 line = sc.nextLine();
                 Car car = Informato.findCar(cars, line);
-                car.setOwner(owner);
+                car.setNumberOfOwner(temp);
             }
             else if(line.equals("5")){
                 System.out.println("Введите номер машины");
                 line = sc.nextLine();
-                Owner owner = Informato.findCarOwner(cars, line);
-                System.out.println(Informato.getOwnerInfo(owner));
+                Car car = Informato.findCar(cars, line);
+                long temp = car.getNumberOfOwner();
+                Owner owner = Informato.findOwnerByNumber(owners, temp);
+                System.out.println(owner.getName() + " " + owner.getSurname());
             }
             else if(line.equals("6")){
                 System.out.println("Имя");
                 line = sc.nextLine();
                 System.out.println("Фамилия");
                 String line1 = sc.nextLine();
-                Owner owner = new Owner(line,line1);
+                Owner owner = new Owner(line,line1, number);
                 owners.add(owner);
+                long temp = owner.getNumber();
                 System.out.println("Номер");
                 String line2 = sc.nextLine();
                 Car car = new Car(line2);
                 cars.add(car);
-                Owner owner1 = Informato.findOwner(owners,line);
-                Car car1 = Informato.findCar(cars, line2);
-                car1.setOwner(owner1);
+                car.setNumberOfOwner(temp);
+                number ++;
             }
         }
     }
     public static void loadOwners() throws FileNotFoundException {
         String s;
         Scanner sc1 = new Scanner(new File("owners.txt"));
-        s = sc1.nextLine();
         String[] s1;
         while (sc1.hasNextLine()) {
+            s = sc1.nextLine();
             s1 = s.split(" ");
-            owners.add(new Owner(s1[0], s1[1]));
-            s = sc.nextLine();
+            owners.add(new Owner(s1[0], s1[1], Long.parseLong(s1[2])));
         }
-        s1 = s.split(" ");
-        owners.add(new Owner(s1[0], s1[1]));
     }
     public static void loadCars() throws FileNotFoundException {
-        Car[] current;
         Scanner sc1;
         String s;
         sc1 = new Scanner(new File("cars.txt"));
-        s = sc1.nextLine();
         String[] s1;
         while (sc1.hasNextLine()) {
+            s = sc1.nextLine();
             s1 = s.split(" ");
-            cars.add(new Car(s1[0]));
-            s = sc.nextLine();
+            cars.add(new Car(s1[0], Long.parseLong(s1[1])));
         }
-        s1 = s.split(" ");
-        cars.add(new Car(s1[0]));
     }
     public static void writeCars(List<Car>  cars) throws IOException {
-        PrintWriter printWriter = new PrintWriter(new FileWriter(new File("cars.txt")),true);
+        printWriter = new PrintWriter(new FileWriter(new File("cars.txt")),true);
         for(Car car: cars){
-            printWriter.println(car.getNumber());
+            printWriter.println(car.getNumber() + " " + car.getNumberOfOwner());
         }
-        printWriter.close();
     }
-    public static void writeOwners(List<Owner>  owners) throws IOException {
-        PrintWriter printWriter = new PrintWriter(new FileWriter(new File("owners.txt")),true);
-        for(Owner owner: owners){
-            printWriter.println(owner.getName() + " " + owner.getSurname());
-        }
-        printWriter.close();
+    public static void writeOwners(Owner owner) throws IOException {
+        fileWriter1 = new FileWriter("owners.txt", true);
+        BufferedWriter bufferWriter = new BufferedWriter(fileWriter1);
+        bufferWriter.write(owner.getName() + " " + owner.getSurname() + " " + owner.getNumber());
+        bufferWriter.close();
     }
 }

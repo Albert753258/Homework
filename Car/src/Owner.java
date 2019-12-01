@@ -4,11 +4,12 @@ public class Owner {
     private String name;
     private String surname;
     private int numberOfCars;
+    private long number;
 
-    public Owner(String name, String surname) {
+    public Owner(String name, String surname, long number) {
         this.name = name;
         this.surname = surname;
-
+        this.number = number;
         this.numberOfCars = 0;
     }
 
@@ -34,5 +35,12 @@ public class Owner {
 
     public void setNumberOfCars(int numberOfCars) {
         this.numberOfCars = numberOfCars;
+    }
+
+    public long getNumber(){
+        return number;
+    }
+    public void setNumber(int number){
+        this.number = number;
     }
 }
