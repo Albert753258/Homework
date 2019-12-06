@@ -11,24 +11,63 @@ import java.util.Random;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
-    public TextField random_text;
+    public TextField text;
+    public TextField text1;
+    public TextField result;
     public Button button;
     public Button button1;
+    public Button button2;
+    public Button button3;
+    public Button button4;
     Random random = new Random();
     public void initialize(URL location, ResourceBundle resources) {
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                int s = random.nextInt();
-                String t = "" + s;
-                random_text.setText(t);
+                long a = Long.parseLong(text.getText());
+                long b = Long.parseLong(text1.getText());
+                long c = Main.plus(a, b);
+                String s = "" + c;
+                result.setText(s);
             }
 
         });
         button1.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                random_text.setText("");
+                long a = Long.parseLong(text.getText());
+                long b = Long.parseLong(text1.getText());
+                long c = Main.minus(a, b);
+                String s = "" + c;
+                result.setText(s);
+            }
+        });
+        button2.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                long a = Long.parseLong(text.getText());
+                long b = Long.parseLong(text1.getText());
+                long c = Main.umnozit(a, b);
+                String s = "" + c;
+                result.setText(s);
+            }
+        });
+        button3.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                long a = Long.parseLong(text.getText());
+                long b = Long.parseLong(text1.getText());
+                long c = Main.razdelit(a, b);
+                String s = "" + c;
+                result.setText(s);
+            }
+        });
+        button4.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                text.setText("");
+                text1.setText("");
+                result.setText("");
             }
         });
     }

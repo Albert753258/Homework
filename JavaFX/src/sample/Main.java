@@ -12,12 +12,25 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("JavaFX_Homework");
-        primaryStage.setScene(new Scene(root, 300, 300));
+        primaryStage.setScene(new Scene(root, 500, 500));
         primaryStage.show();
     }
 
 
     public static void main(String[] args) {
         launch(args);
+    }
+
+    public static long minus(long a, long b) {
+        return a - b;
+    }
+    public static long plus(long a, long b) {
+        return a + b;
+    }
+    public static long umnozit(long a, long b) {
+        return a * b;
+    }
+    public static long razdelit(long a, long b) {
+        return a / b;
     }
 }
