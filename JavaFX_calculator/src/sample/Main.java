@@ -21,16 +21,20 @@ public class Main extends Application {
         launch(args);
     }
 
-    public static long minus(long a, long b) {
+    public static double minus(double a, double b) {
         return a - b;
     }
-    public static long plus(long a, long b) {
+    public static double plus(double a, double b) {
         return a + b;
     }
-    public static long umnozit(long a, long b) {
+    public static double umnozit(double a, double b) {
         return a * b;
     }
-    public static long razdelit(long a, long b) {
+    public static double razdelit(double a, double b) {
         return a / b;
+    }
+
+    public static double procent(double a, double b) {
+        return a / 100 * b;
     }
 }
