@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -41,8 +42,17 @@ public class ViewNoteController implements Initializable {
         removeButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                Main.notes.remove(i - 1);
-                Main.textAreaFilling(Main.controller.text);
+                Note note2 = Main.findNote(i);
+                int j = note2.getId();
+                Note note1 = Main.notes.get(j - 1);
+                note1.setDeleted(true);
+                Main.notes.set(j - 1, note1);
+                Files.showNotes(Main.controller.text);
+                try {
+                    Files.writeList();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }

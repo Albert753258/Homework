@@ -30,10 +30,13 @@ public class NewNoteController implements Initializable {
             public void handle(MouseEvent event) {
                 try {
                     int number = Main.notes.peekLast().getNumber();
+                    int id = Main.notes.peekLast().getId();
                     number ++;
-                    Note note = new Note(number, name.getText(), text.getText());
+                    id ++;
+                    Note note = new Note(false, id, number, name.getText(), text.getText());
                     Main.notes.add(note);
-                    Main.writeNotes(note);
+                    Files.writeNotes(note);
+                    Files.showNotes(Main.controller.text);
                     Stage stage = (Stage) saveButton.getScene().getWindow();
                     stage.close();
                 } catch (IOException e) {

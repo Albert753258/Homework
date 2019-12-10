@@ -4,8 +4,12 @@ public class Note {
     public String name;
     public String text;
     public int number;
+    public boolean deleted;
+    public int id;
 
-    public Note(int number, String name, String text){
+    public Note(boolean deleted, int id, int number, String name, String text){
+        this.deleted = deleted;
+        this.id = id;
         this.number = number;
         this.name = name;
         this.text = text;
@@ -31,8 +35,20 @@ public class Note {
         return text;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
+    }
+
+    public boolean getDeleted() {
+        return deleted;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String note_info() {

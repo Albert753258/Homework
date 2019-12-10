@@ -29,7 +29,7 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources){
         Main.controller = this;
-        Main.textAreaFilling(text);
+        Files.showNotes(text);
         addButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event){
