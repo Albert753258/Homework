@@ -16,6 +16,8 @@ public class ViewNoteController implements Initializable {
     @FXML
     public Button removeButton;
     @FXML
+    public Button saveButton;
+    @FXML
     public TextArea number;
     @FXML
     public TextArea name;
@@ -47,7 +49,8 @@ public class ViewNoteController implements Initializable {
                 Note note1 = Main.notes.get(j - 1);
                 note1.setDeleted(true);
                 Main.notes.set(j - 1, note1);
-                Files.showNotes(Main.controller.text);
+                Main.notes_deleted.set(j - 1, note1);
+                Main.showNotes(Main.controller.text);
                 try {
                     Files.writeList();
                 } catch (IOException e) {
