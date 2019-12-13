@@ -41,15 +41,29 @@ public class ViewNoteController implements Initializable {
         numberColumn.setText(note.getNumber() + "");
         nameColumn.setText(note.getName() + "");
         textColumn.setText(note.getText());
+        int j = note.getId();
         removeButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                Note note2 = Main.findNote(i);
-                int j = note2.getId();
                 Note note1 = Main.notes.get(j - 1);
                 note1.setDeleted(true);
                 Main.notes.set(j - 1, note1);
                 Main.notes_deleted.set(j - 1, note1);
+                Main.showNotes(Main.controller.text);
+                try {
+                    Files.writeList();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        saveButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                Note note2 = new Note(false, j, i, nameColumn.getText(), textColumn.getText());
+                int number = Main.notes.indexOf(note);
+                Main.notes.set(number, note2);
+                Main.notes_deleted.set(j - 1, note2);
                 Main.showNotes(Main.controller.text);
                 try {
                     Files.writeList();

@@ -34,7 +34,7 @@ public class NewNoteController implements Initializable {
                     number ++;
                     id ++;
                     String[] s1 = Main.nameAnalyze(name);
-                    
+
                     Note note = new Note(false, id, number, name.getText(), text.getText());
                     Main.notes.add(note);
                     Main.notes_deleted.add(note);

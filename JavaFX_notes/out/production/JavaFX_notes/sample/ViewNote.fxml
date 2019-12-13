@@ -12,7 +12,6 @@
             <children>
                 <Button fx:id="removeButton" layoutX="125.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Remove this note" />
                 <Button fx:id="saveButton" layoutX="427.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Save changes" />
-                <Button fx:id="editButton" layoutX="276.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Edit this note" />
                 <TextArea fx:id="number" layoutX="10.0" layoutY="100.0" prefHeight="50.0" prefWidth="100.0" />
                 <TextArea fx:id="name" layoutX="110.0" layoutY="100.0" prefHeight="50.0" prefWidth="100.0" />
                 <TextArea fx:id="text" layoutX="210.0" layoutY="100.0" prefHeight="50.0" prefWidth="500.0" />
