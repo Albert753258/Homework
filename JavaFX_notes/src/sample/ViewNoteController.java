@@ -35,6 +35,10 @@ public class ViewNoteController implements Initializable {
         number.setText("Number");
         name.setText("Name");
         text.setText("Text");
+        name.setEditable(false);
+        number.setEditable(false);
+        text.setEditable(false);
+        numberColumn.setEditable(false);
         String s = Main.controller.numberOfView.getText();
         int i = Integer.parseInt(s);
         Note note = Main.findNote(i);

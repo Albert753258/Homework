@@ -30,6 +30,7 @@ public class Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources){
         Main.controller = this;
         Main.showNotes(text);
+        text.setEditable(false);
         addButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event){
