@@ -36,8 +36,7 @@ public class Main extends Application {
 
 
     public static void main(String[] args) throws FileNotFoundException {
-        Files.readNotesWithDeleted(notes_deleted);
-        Files.readNotes(notes);
+        Files.readNotes(notes, notes_deleted);
         launch(args);
     }
 

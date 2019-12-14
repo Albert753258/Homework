@@ -33,8 +33,6 @@ public class NewNoteController implements Initializable {
                     int id = Main.notes_deleted.peekLast().getId();
                     number ++;
                     id ++;
-                    String[] s1 = Main.nameAnalyze(name);
-
                     Note note = new Note(false, id, number, name.getText(), text.getText());
                     Main.notes.add(note);
                     Main.notes_deleted.add(note);
