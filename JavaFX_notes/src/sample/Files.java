@@ -22,13 +22,15 @@ public class Files {
         String s;
         sc1 = new Scanner(new File("notes.txt"));
         String[] s1;
+        int i = 1;
         while (sc1.hasNextLine()) {
             s = sc1.nextLine();
             s1 = s.split(" ");
-            Note note = new Note(Boolean.parseBoolean(s1[0]), Integer.parseInt(s1[1]), Integer.parseInt(s1[2]), s1[3], s1[4]);
+            Note note = new Note(Boolean.parseBoolean(s1[0]), Integer.parseInt(s1[1]), i, s1[3], s1[4]);
             notes_deleted.add(note);
             if(note.getDeleted() == false){
                 notes.add(note);
+                i ++;
             }
         }
     }
