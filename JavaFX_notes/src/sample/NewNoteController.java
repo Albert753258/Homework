@@ -28,21 +28,18 @@ public class NewNoteController implements Initializable {
         saveButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                try {
-                    int number = Main.notes.peekLast().getNumber();
-                    int id = Main.notes_deleted.peekLast().getId();
-                    number ++;
-                    id ++;
-                    Note note = new Note(false, id, number, name.getText(), text.getText());
-                    Main.notes.add(note);
-                    Main.notes_deleted.add(note);
-                    Files.writeNotes(note);
-                    Main.showNotes(Main.controller.text);
-                    Stage stage = (Stage) saveButton.getScene().getWindow();
-                    stage.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                int number = Main.notes.peekLast().getNumber();
+                int id = Main.notes_deleted.peekLast().getId();
+                number ++;
+                id ++;
+                String nameString = TextAnalyze.textAnalyze(name.getText());
+                String textString = TextAnalyze.textAnalyze(text.getText());
+                Note note = new Note(false, id, number, nameString, textString);
+                Main.notes.add(note);
+                Main.notes_deleted.add(note);
+                Main.showNotes(Main.controller.text);
+                Stage stage = (Stage) saveButton.getScene().getWindow();
+                stage.close();
             }
         });
     }

@@ -10,13 +10,6 @@ public class Files {
     public static FileWriter fileWriter;
     public static BufferedWriter bufferedWriter;
 
-
-    public static void writeNotes(Note note) throws IOException {
-        fileWriter = new FileWriter("notes.txt", true);
-        bufferedWriter = new BufferedWriter(fileWriter);
-        bufferedWriter.write("\n" + note.getDeleted() + " " + note.getId() + " " + note.getNumber() + " " + note.getName() + " " + note.getText());
-        bufferedWriter.close();
-    }
     public static void readNotes(LinkedList<Note> notes, LinkedList<Note> notes_deleted) throws FileNotFoundException {
         Scanner sc1;
         String s;
@@ -26,7 +19,9 @@ public class Files {
         while (sc1.hasNextLine()) {
             s = sc1.nextLine();
             s1 = s.split(" ");
-            Note note = new Note(Boolean.parseBoolean(s1[0]), Integer.parseInt(s1[1]), i, s1[3], s1[4]);
+            String nameString = TextAnalyze.textDeAnalyze(s1[3]);
+            String textString = TextAnalyze.textDeAnalyze(s1[4]);
+            Note note = new Note(Boolean.parseBoolean(s1[0]), Integer.parseInt(s1[1]), i, nameString, textString);
             notes_deleted.add(note);
             if(note.getDeleted() == false){
                 notes.add(note);

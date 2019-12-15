@@ -33,8 +33,10 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 700, 500));
         primaryStage.show();
     }
-
-
+    @Override
+    public void stop() throws IOException {
+        Files.writeList();
+    }
     public static void main(String[] args) throws FileNotFoundException {
         Files.readNotes(notes, notes_deleted);
         launch(args);
