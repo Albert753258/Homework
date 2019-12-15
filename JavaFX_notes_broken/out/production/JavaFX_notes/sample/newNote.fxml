@@ -12,7 +12,7 @@
         <Pane prefHeight="500.0" prefWidth="700.0">
             <children>
                 <Button fx:id="saveButton" layoutX="325.0" layoutY="460.0" mnemonicParsing="false" text="Save" prefHeight="20.0" prefWidth="50.0"/>
-                <TextArea fx:id="name" layoutX="275" layoutY="80.0" prefHeight="50.0" prefWidth="150.0" />
+                <TextField fx:id="name" layoutX="275" layoutY="80.0" prefHeight="50.0" prefWidth="150.0" />
                 <Label layoutX="310.0" layoutY="50.0" text="Note's name"/>
                 <Label layoutX="320.0" layoutY="220.0" text="Note's text" />
                 <TextArea fx:id="text" layoutX="100.0" layoutY="250.0" prefHeight="200.0" prefWidth="500.0" />
