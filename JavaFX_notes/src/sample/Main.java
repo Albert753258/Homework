@@ -45,7 +45,9 @@ public class Main extends Application {
         text.setText("");
         for(Note note: Main.notes){
             if (note.getDeleted() == false){
-                text.appendText(note.getNumber() + " " + note.getName() + " " + note.getText() + "\n");
+                String nameString = TextAnalyze.textDeAnalyze(note.getName());
+                String textString = TextAnalyze.textDeAnalyze(note.getText());
+                text.appendText(note.getNumber() + " " + nameString + " " + textString + "\n");
             }
         }
     }

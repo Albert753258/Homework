@@ -19,9 +19,7 @@ public class Files {
         while (sc1.hasNextLine()) {
             s = sc1.nextLine();
             s1 = s.split(" ");
-            String nameString = TextAnalyze.textDeAnalyze(s1[3]);
-            String textString = TextAnalyze.textDeAnalyze(s1[4]);
-            Note note = new Note(Boolean.parseBoolean(s1[0]), Integer.parseInt(s1[1]), i, nameString, textString);
+            Note note = new Note(Boolean.parseBoolean(s1[0]), Integer.parseInt(s1[1]), i, s1[3], s1[4]);
             notes_deleted.add(note);
             if(note.getDeleted() == false){
                 notes.add(note);
