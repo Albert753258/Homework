@@ -17,15 +17,6 @@ public class Main extends Application {
     public static Controller controller;
     public static LinkedList<Note> notes = new LinkedList<>();
     public static LinkedList<Note> notes_deleted = new LinkedList<>();
-
-    public static String[] nameAnalyze(TextField name) {
-        String name1 = name.getText();
-        String[] s1;
-        s1 = name1.split("\n");
-        int i = s1.length;
-        return s1;
-    }
-
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
