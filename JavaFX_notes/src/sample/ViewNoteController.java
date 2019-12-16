@@ -66,15 +66,12 @@ public class ViewNoteController implements Initializable {
         saveButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                Note note2 = new Note(false, j, i, nameColumn.getText(), textColumn.getText());
+                String nameString = TextAnalyze.textAnalyze(nameColumn.getText());
+                String textString = TextAnalyze.textAnalyze(textColumn.getText());
+                Note note2 = new Note(false, j, i, nameString, textString);
                 Main.notes.set(number, note2);
                 Main.notes_deleted.set(j - 1, note2);
                 Main.showNotes(Main.controller.text);
-                try {
-                    Files.writeList();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
             }
         });
     }
