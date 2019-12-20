@@ -57,7 +57,7 @@ public class ViewNoteController implements Initializable {
                 Main.notes.remove(number);
                 int number1 = Main.notes_deleted.indexOf(note);
                 Main.notes_deleted.set(number1, note1);
-                Main.showNotes(Main.controller.text);
+                Main.showNotes(Main.controller.textColumn, Main.controller.nameColumn, Main.controller.numberColumn);
                 try {
                     Files.writeList();
                 } catch (IOException e) {
@@ -73,7 +73,7 @@ public class ViewNoteController implements Initializable {
                 Note note2 = new Note(false, j, i, nameString, textString);
                 Main.notes.set(number, note2);
                 Main.notes_deleted.set(j - 1, note2);
-                Main.showNotes(Main.controller.text);
+                Main.showNotes(Main.controller.textColumn, Main.controller.nameColumn, Main.controller.numberColumn);
             }
         });
     }

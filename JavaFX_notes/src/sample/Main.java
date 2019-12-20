@@ -32,13 +32,17 @@ public class Main extends Application {
         Files.readNotes(notes, notes_deleted);
         launch(args);
     }
-    public static void showNotes(TextArea text) {
-        text.setText("");
+    public static void showNotes(TextArea textColumn, TextArea nameColumn, TextArea numberColumn) {
+        textColumn.setText("");
+        nameColumn.setText("");
+        numberColumn.setText("");
         for(Note note: Main.notes){
             if (note.getDeleted() == false){
                 String nameString = TextAnalyze.textDeAnalyze(note.getName());
                 String textString = TextAnalyze.textDeAnalyze(note.getText());
-                text.appendText(note.getNumber() + " " + nameString + " " + textString + "\n");
+                textColumn.appendText(textString + "\n");
+                nameColumn.appendText(nameString + "\n");
+                numberColumn.appendText(note.getNumber() + "\n");
             }
         }
     }

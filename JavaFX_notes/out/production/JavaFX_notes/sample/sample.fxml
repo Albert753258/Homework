@@ -3,16 +3,27 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.2-internal" fx:controller="sample.Controller">
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <children>
         <Pane fx:id="pane" prefHeight="500" prefWidth="700">
             <children>
-                <Button fx:id="addButton" layoutX="400.0" layoutY="105.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Add new note" />
-                <Button fx:id="searchButton" layoutX="400.0" layoutY="55.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Search note" />
-                <Button fx:id="viewButton" layoutX="450.0" layoutY="155.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="View note" />
-                <TextField fx:id="numberOfView" layoutX="400.0" layoutY="155.0" prefHeight="50.0" prefWidth="50.0" />
-                <TextArea fx:id="text" layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="350.0" />
+                <Button fx:id="addButton" layoutX="405.0" layoutY="175.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Add new note" />
+                <Button fx:id="searchButton" layoutX="405.0" layoutY="225.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Search note" />
+                <Button fx:id="viewButton" layoutX="455.0" layoutY="275.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="View note" />
+                <TextField fx:id="numberOfView" layoutX="405.0" layoutY="275.0" prefHeight="50.0" prefWidth="50.0" />
+                <TextArea fx:id="number" layoutX="10.0" layoutY="10.0" prefHeight="50.0" prefWidth="72.0" text="Number" />
+                <TextArea fx:id="name" layoutX="82.0" layoutY="10.0" prefHeight="50.0" prefWidth="72.0" text="Name" />
+                <TextArea fx:id="text" layoutX="154.0" layoutY="10.0" prefHeight="50.0" prefWidth="250.0" text="Text" />
+                <TextArea fx:id="numberColumn" layoutX="10.0" layoutY="60.0" prefHeight="430.0" prefWidth="72.0" />
+                <TextArea fx:id="nameColumn" layoutX="82.0" layoutY="60.0" prefHeight="430.0" prefWidth="72.0" />
+                <TextArea fx:id="textColumn" layoutX="154.0" layoutY="60.0" prefHeight="430.0" prefWidth="250.0" />
             </children>
         </Pane>
     </children>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
 </GridPane>

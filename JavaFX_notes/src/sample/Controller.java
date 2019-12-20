@@ -19,7 +19,17 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
     @FXML
+    public TextArea textColumn;
+    @FXML
+    public TextArea nameColumn;
+    @FXML
+    public TextArea numberColumn;
+    @FXML
     public TextArea text;
+    @FXML
+    public TextArea name;
+    @FXML
+    public TextArea number;
     @FXML
     public TextField numberOfView;
     @FXML
@@ -31,8 +41,13 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources){
         Main.controller = this;
-        Main.showNotes(text);
+        Main.showNotes(textColumn, nameColumn, numberColumn);
         text.setEditable(false);
+        name.setEditable(false);
+        number.setEditable(false);
+        textColumn.setEditable(false);
+        nameColumn.setEditable(false);
+        numberColumn.setEditable(false);
         addButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event){
