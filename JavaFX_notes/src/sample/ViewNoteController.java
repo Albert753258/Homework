@@ -42,9 +42,11 @@ public class ViewNoteController implements Initializable {
         String s = Main.controller.numberOfView.getText();
         int i = Integer.parseInt(s);
         Note note = Main.findNote(i);
+        String nameString = TextAnalyze.textDeAnalyze(note.getName());
+        String textString = TextAnalyze.textDeAnalyze(textColumn.getText());
         numberColumn.setText(note.getNumber() + "");
-        nameColumn.setText(note.getName() + "");
-        textColumn.setText(note.getText());
+        nameColumn.setText(nameString);
+        textColumn.setText(textString);
         int j = note.getId();
         int number = Main.notes.indexOf(note);
         removeButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
