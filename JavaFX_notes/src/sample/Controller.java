@@ -26,6 +26,8 @@ public class Controller implements Initializable {
     public Button addButton;
     @FXML
     public Button viewButton;
+    @FXML
+    public Button searchButton;
     @Override
     public void initialize(URL location, ResourceBundle resources){
         Main.controller = this;
@@ -64,6 +66,21 @@ public class Controller implements Initializable {
                         e.printStackTrace();
                     }
                 }
+            }
+        });
+        searchButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event){
+                Stage stage = new Stage();
+                Parent root = null;
+                try {
+                    root = FXMLLoader.load(getClass().getResource("searchNote.fxml"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                stage.setTitle("Найти заметку");
+                stage.setScene(new Scene(root, 700,500));
+                stage.show();
             }
         });
     }

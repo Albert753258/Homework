@@ -32,15 +32,6 @@ public class Main extends Application {
         Files.readNotes(notes, notes_deleted);
         launch(args);
     }
-
-    public static Note findNote(int i){
-        for (Note note: notes){
-            if (note.getNumber() == i){
-                return note;
-            }
-        }
-        return null;
-    }
     public static void showNotes(TextArea text) {
         text.setText("");
         for(Note note: Main.notes){

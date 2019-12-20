@@ -41,9 +41,9 @@ public class ViewNoteController implements Initializable {
         numberColumn.setEditable(false);
         String s = Main.controller.numberOfView.getText();
         int i = Integer.parseInt(s);
-        Note note = Main.findNote(i);
+        Note note = FindNotes.findNoteByNumber(i, Main.notes);
         String nameString = TextAnalyze.textDeAnalyze(note.getName());
-        String textString = TextAnalyze.textDeAnalyze(textColumn.getText());
+        String textString = TextAnalyze.textDeAnalyze(note.getText());
         numberColumn.setText(note.getNumber() + "");
         nameColumn.setText(nameString);
         textColumn.setText(textString);

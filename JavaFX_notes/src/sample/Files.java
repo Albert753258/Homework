@@ -7,8 +7,6 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Files {
-    public static FileWriter fileWriter;
-    public static BufferedWriter bufferedWriter;
 
     public static void readNotes(LinkedList<Note> notes, LinkedList<Note> notes_deleted) throws FileNotFoundException {
         Scanner sc1;
