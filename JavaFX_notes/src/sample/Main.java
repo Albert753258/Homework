@@ -34,6 +34,7 @@ public class Main extends Application {
         launch(args);
     }
     public static void showNotes(TextArea textColumn, TextArea nameColumn, TextArea numberColumn) {
+        int i = 1;
         textColumn.setText("");
         nameColumn.setText("");
         numberColumn.setText("");
@@ -43,11 +44,13 @@ public class Main extends Application {
                 String textString = TextAnalyze.textDeAnalyze(note.getText());
                 textColumn.appendText(textString + "\n");
                 nameColumn.appendText(nameString + "\n");
-                numberColumn.appendText(note.getNumber() + "\n");
+                numberColumn.appendText(i + "\n");
+                i ++;
             }
         }
     }
     public static void showNotesSearch(TextArea textColumn, TextArea nameColumn, TextArea numberColumn) {
+        int i = 1;
         textColumn.setText("");
         nameColumn.setText("");
         numberColumn.setText("");
@@ -57,7 +60,8 @@ public class Main extends Application {
                 String textString = TextAnalyze.textDeAnalyze(note.getText());
                 textColumn.appendText(textString + "\n");
                 nameColumn.appendText(nameString + "\n");
-                numberColumn.appendText(note.getNumber() + "\n");
+                numberColumn.appendText(i + "\n");
+                i ++;
             }
         }
     }

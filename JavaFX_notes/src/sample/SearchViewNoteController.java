@@ -36,7 +36,6 @@ public class SearchViewNoteController {
         numberColumn.setEditable(false);
         String s = Main.controller1.numberOfView.getText();
         int i = Integer.parseInt(s);
-        //Note note = FindNotes.findNoteByNumber(i, SearchController.search_result);
         Note note = SearchController.search_result.get(i - 1);
         String nameString = TextAnalyze.textDeAnalyze(note.getName());
         String textString = TextAnalyze.textDeAnalyze(note.getText());
@@ -55,6 +54,7 @@ public class SearchViewNoteController {
                 int number1 = Main.notes_deleted.indexOf(note);
                 Main.notes_deleted.set(number1, note1);
                 SearchController.search_result.set(number2, note1);
+                Main.showNotesSearch(Main.controller1.textColumn, Main.controller1.nameColumn, Main.controller1.numberColumn);
                 Main.showNotes(Main.controller.textColumn, Main.controller.nameColumn, Main.controller.numberColumn);
                 try {
                     Files.writeList();
@@ -73,6 +73,7 @@ public class SearchViewNoteController {
                 Main.notes_deleted.set(j - 1, note2);
                 SearchController.search_result.set(number2, note2);
                 Main.showNotesSearch(Main.controller1.textColumn, Main.controller1.nameColumn, Main.controller1.numberColumn);
+                Main.showNotes(Main.controller.textColumn, Main.controller.nameColumn, Main.controller.numberColumn);
             }
         });
     }
