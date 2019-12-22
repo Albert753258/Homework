@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public class FindNotes {
     public static Note findNoteByNumber(int i, LinkedList<Note> notes){
-        for (Note note: Main.notes){
+        for (Note note: notes){
             if (note.getNumber() == i){
                 return note;
             }

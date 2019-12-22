@@ -1,18 +1,14 @@
 package sample;
 
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-public class ViewNoteController implements Initializable {
+public class SearchViewNoteController {
     @FXML
     public Button removeButton;
     @FXML
@@ -30,8 +26,7 @@ public class ViewNoteController implements Initializable {
     @FXML
     public TextArea textColumn;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize() {
         number.setText("Number");
         name.setText("Name");
         text.setText("Text");
@@ -39,9 +34,10 @@ public class ViewNoteController implements Initializable {
         number.setEditable(false);
         text.setEditable(false);
         numberColumn.setEditable(false);
-        String s = Main.controller.numberOfView.getText();
+        String s = Main.controller1.numberOfView.getText();
         int i = Integer.parseInt(s);
-        Note note = FindNotes.findNoteByNumber(i, Main.notes);
+        //Note note = FindNotes.findNoteByNumber(i, SearchController.search_result);
+        Note note = SearchController.search_result.get(i - 1);
         String nameString = TextAnalyze.textDeAnalyze(note.getName());
         String textString = TextAnalyze.textDeAnalyze(note.getText());
         numberColumn.setText(i + "");
@@ -49,6 +45,7 @@ public class ViewNoteController implements Initializable {
         textColumn.setText(textString);
         int j = note.getId();
         int number = Main.notes.indexOf(note);
+        int number2 = SearchController.search_result.indexOf(note);
         removeButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -57,6 +54,7 @@ public class ViewNoteController implements Initializable {
                 Main.notes.remove(number);
                 int number1 = Main.notes_deleted.indexOf(note);
                 Main.notes_deleted.set(number1, note1);
+                SearchController.search_result.set(number2, note1);
                 Main.showNotes(Main.controller.textColumn, Main.controller.nameColumn, Main.controller.numberColumn);
                 try {
                     Files.writeList();
@@ -73,8 +71,10 @@ public class ViewNoteController implements Initializable {
                 Note note2 = new Note(false, j, i, nameString, textString);
                 Main.notes.set(number, note2);
                 Main.notes_deleted.set(j - 1, note2);
-                Main.showNotes(Main.controller.textColumn, Main.controller.nameColumn, Main.controller.numberColumn);
+                SearchController.search_result.set(number2, note2);
+                Main.showNotesSearch(Main.controller1.textColumn, Main.controller1.nameColumn, Main.controller1.numberColumn);
             }
         });
     }
 }
+

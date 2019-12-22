@@ -15,6 +15,7 @@ import sample.Controller;
 
 public class Main extends Application {
     public static Controller controller;
+    public static SearchController controller1;
     public static LinkedList<Note> notes = new LinkedList<>();
     public static LinkedList<Note> notes_deleted = new LinkedList<>();
     @Override
@@ -37,6 +38,20 @@ public class Main extends Application {
         nameColumn.setText("");
         numberColumn.setText("");
         for(Note note: Main.notes){
+            if (note.getDeleted() == false){
+                String nameString = TextAnalyze.textDeAnalyze(note.getName());
+                String textString = TextAnalyze.textDeAnalyze(note.getText());
+                textColumn.appendText(textString + "\n");
+                nameColumn.appendText(nameString + "\n");
+                numberColumn.appendText(note.getNumber() + "\n");
+            }
+        }
+    }
+    public static void showNotesSearch(TextArea textColumn, TextArea nameColumn, TextArea numberColumn) {
+        textColumn.setText("");
+        nameColumn.setText("");
+        numberColumn.setText("");
+        for(Note note: SearchController.search_result){
             if (note.getDeleted() == false){
                 String nameString = TextAnalyze.textDeAnalyze(note.getName());
                 String textString = TextAnalyze.textDeAnalyze(note.getText());
