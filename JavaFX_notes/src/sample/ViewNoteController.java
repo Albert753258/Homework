@@ -59,11 +59,7 @@ public class ViewNoteController implements Initializable {
                 int number1 = Main.notes_deleted.indexOf(note);
                 Main.notes_deleted.set(number1, note1);
                 Main.showNotes(Main.controller.textColumn, Main.controller.nameColumn, Main.controller.numberColumn);
-                try {
-                    Files.writeList();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                
             }
         });
         saveButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
