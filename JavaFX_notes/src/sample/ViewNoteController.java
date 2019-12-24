@@ -40,6 +40,7 @@ public class ViewNoteController implements Initializable {
         text.setEditable(false);
         numberColumn.setEditable(false);
         String s = Main.controller.numberOfView.getText();
+        Main.controller.numberOfView.setText("");
         int i = Integer.parseInt(s);
         Note note = FindNotes.findNoteByNumber(i, Main.notes);
         String nameString = TextAnalyze.textDeAnalyze(note.getName());

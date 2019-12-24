@@ -33,10 +33,22 @@ public class SearchController implements Initializable {
     @FXML
     public TextField numberOfView;
     @FXML
+    public TextArea text;
+    @FXML
+    public TextArea name;
+    @FXML
+    public TextArea number;
+    @FXML
     public TextField searchText;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        name.setEditable(false);
+        number.setEditable(false);
+        text.setEditable(false);
+        numberColumn.setEditable(false);
+        textColumn.setEditable(false);
+        nameColumn.setEditable(false);
         Main.controller1 = this;
         for(int i = 1; i <= Main.notes.size(); i ++){
             Note note = Main.notes.get(i - 1);

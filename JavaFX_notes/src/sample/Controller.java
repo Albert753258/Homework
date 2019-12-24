@@ -55,7 +55,7 @@ public class Controller implements Initializable {
                 Parent root = null;
                 try {
                     root = FXMLLoader.load(getClass().getResource("newNote.fxml"));
-                    stage.setTitle("Добавить заметку");
+                    stage.setTitle("Add new note");
                     stage.setScene(new Scene(root, 700,500));
                     stage.show();
                 } catch (IOException e) {
@@ -93,7 +93,7 @@ public class Controller implements Initializable {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                stage.setTitle("Найти заметку");
+                stage.setTitle("Find note");
                 stage.setScene(new Scene(root, 700,500));
                 stage.show();
             }

@@ -35,6 +35,7 @@ public class SearchViewNoteController {
         text.setEditable(false);
         numberColumn.setEditable(false);
         String s = Main.controller1.numberOfView.getText();
+        Main.controller1.numberOfView.setText("");
         int i = Integer.parseInt(s);
         Note note = SearchController.search_result.get(i - 1);
         String nameString = TextAnalyze.textDeAnalyze(note.getName());
