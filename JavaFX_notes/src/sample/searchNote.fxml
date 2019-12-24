@@ -7,15 +7,15 @@
     <children>
         <Pane fx:id="pane" prefHeight="500" prefWidth="700">
             <children>
-                <TextField fx:id="searchText" layoutX="410.0" layoutY="200.0" prefHeight="50.0" prefWidth="200.0" />
-                <TextField fx:id="numberOfView" layoutX="410.0" layoutY="250.0" prefHeight="50.0" prefWidth="50.0" />
-                <TextArea fx:id="number" layoutX="10.0" layoutY="100.0" prefHeight="50.0" prefWidth="72.0" text="Number" />
-                <TextArea fx:id="name" layoutX="82.0" layoutY="100.0" prefHeight="50.0" prefWidth="72.0" text="Name" />
-                <TextArea fx:id="text" layoutX="154.0" layoutY="100.0" prefHeight="50.0" prefWidth="250.0" text="Text" />
-                <TextArea fx:id="numberColumn" layoutX="10.0" layoutY="150.0" prefHeight="300.0" prefWidth="72.0" />
-                <TextArea fx:id="nameColumn" layoutX="82.0" layoutY="150.0" prefHeight="300.0" prefWidth="72.0" />
-                <TextArea fx:id="textColumn" layoutX="154.0" layoutY="150.0" prefHeight="300.0" prefWidth="250.0" />
-                <Button fx:id="viewButton" layoutX="460.0" layoutY="250.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="View note" />
+                <TextField fx:id="searchText" layoutX="461.0" layoutY="200.0" prefHeight="50.0" prefWidth="200.0" />
+                <TextField fx:id="numberOfView" layoutX="461.0" layoutY="250.0" prefHeight="50.0" prefWidth="50.0" />
+                <TextArea fx:id="number" layoutX="10.0" layoutY="10.0" prefHeight="50.0" prefWidth="100.0" text="Number" />
+                <TextArea fx:id="name" layoutX="110.0" layoutY="10.0" prefHeight="50.0" prefWidth="100.0" text="Name" />
+                <TextArea fx:id="text" layoutX="210.0" layoutY="10.0" prefHeight="50.0" prefWidth="250.0" text="Text" />
+                <TextArea fx:id="numberColumn" layoutX="10.0" layoutY="60.0" prefHeight="430.0" prefWidth="100.0" />
+                <TextArea fx:id="nameColumn" layoutX="110.0" layoutY="60.0" prefHeight="430.0" prefWidth="100.0" />
+                <TextArea fx:id="textColumn" layoutX="210.0" layoutY="60.0" prefHeight="430.0" prefWidth="250.0" />
+                <Button fx:id="viewButton" layoutX="511.0" layoutY="250.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="View note" />
             </children>
         </Pane>
     </children>
