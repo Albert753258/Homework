@@ -26,8 +26,10 @@ public class Files {
 
     public static void writeList() throws IOException {
         PrintWriter printWriter = new PrintWriter(new FileWriter(new File("notes.txt")),true);
+        int i = 1;
         for(Note note: Main.notes_deleted){
-            printWriter.println(note.getDeleted() + " " + note.getId() + " " + note.getNumber() + " " + note.getName() + " " + note.getText());
+            printWriter.println(note.getDeleted() + " " + note.getId() + " " + i + " " + note.getName() + " " + note.getText());
+            i ++;
         }
         printWriter.close();
     }
