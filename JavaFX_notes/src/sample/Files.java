@@ -1,7 +1,5 @@
 package sample;
 
-import javafx.scene.control.TextArea;
-
 import java.io.*;
 import java.util.LinkedList;
 import java.util.Scanner;

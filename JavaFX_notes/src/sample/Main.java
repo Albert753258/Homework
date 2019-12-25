@@ -38,7 +38,7 @@ public class Main extends Application {
         textColumn.setText("");
         nameColumn.setText("");
         numberColumn.setText("");
-        for(Note note: Main.notes){
+        for(Note note: Main.notes_deleted){
             if (note.getDeleted() == false){
                 String nameString = TextAnalyze.textDeAnalyze(note.getName());
                 String textString = TextAnalyze.textDeAnalyze(note.getText());
@@ -55,14 +55,12 @@ public class Main extends Application {
         nameColumn.setText("");
         numberColumn.setText("");
         for(Note note: SearchController.search_result){
-            if (note.getDeleted() == false){
-                String nameString = TextAnalyze.textDeAnalyze(note.getName());
-                String textString = TextAnalyze.textDeAnalyze(note.getText());
-                textColumn.appendText(textString + "\n");
-                nameColumn.appendText(nameString + "\n");
-                numberColumn.appendText(i + "\n");
-                i ++;
-            }
+            String nameString = TextAnalyze.textDeAnalyze(note.getName());
+            String textString = TextAnalyze.textDeAnalyze(note.getText());
+            textColumn.appendText(textString + "\n");
+            nameColumn.appendText(nameString + "\n");
+            numberColumn.appendText(i + "\n");
+            i ++;
         }
     }
 }

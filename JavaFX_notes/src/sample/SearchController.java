@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -40,6 +41,8 @@ public class SearchController implements Initializable {
     public TextArea number;
     @FXML
     public TextField searchText;
+    @FXML
+    public CheckBox showDeletedNotes;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -72,18 +75,14 @@ public class SearchController implements Initializable {
                     }
                 }
                 else {
-                    nameColumn.setText("");
-                    textColumn.setText("");
-                    numberColumn.setText("");
-                    int i = 1;
-                    FindNotes.findNote(searchText.getText(), searchText.getText(), search_result);
-                    for(Note note: search_result){
-                        numberColumn.appendText(i + "\n");
-                        nameColumn.appendText(note.getName() + "\n");
-                        textColumn.appendText(note.getText() + "\n");
-                        i ++;
-                    }
+                    findNote();
                 }
+            }
+        });
+        showDeletedNotes.selectedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                findNote();
             }
         });
         viewButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -106,5 +105,34 @@ public class SearchController implements Initializable {
                 }
             }
         });
+    }
+    public void findNote(){
+        boolean b = showDeletedNotes.selectedProperty().get();
+        if (b == false){
+            nameColumn.setText("");
+            textColumn.setText("");
+            numberColumn.setText("");
+            int i = 1;
+            FindNotes.findNote(searchText.getText(), searchText.getText(), search_result, Main.notes);
+            for(Note note: search_result){
+                numberColumn.appendText(i + "\n");
+                nameColumn.appendText(note.getName() + "\n");
+                textColumn.appendText(note.getText() + "\n");
+                i ++;
+            }
+        }
+        if (b == true){
+            nameColumn.setText("");
+            textColumn.setText("");
+            numberColumn.setText("");
+            int i = 1;
+            FindNotes.findNote(searchText.getText(), searchText.getText(), search_result, Main.notes_deleted);
+            for(Note note: search_result){
+                numberColumn.appendText(i + "\n");
+                nameColumn.appendText(note.getName() + "\n");
+                textColumn.appendText(note.getText() + "\n");
+                i ++;
+            }
+        }
     }
 }

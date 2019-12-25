@@ -11,15 +11,13 @@ public class FindNotes {
         }
         return null;
     }
-    public static Note findNote(String name, String text, LinkedList<Note> search_result) {
+    public static Note findNote(String name, String text, LinkedList<Note> search_result, LinkedList<Note> list) {
         search_result.clear();
-        for (Note note : Main.notes) {
-            boolean b = false;
+        for (Note note : list) {
             if (note.getName().contains(name)) {
                 search_result.add(note);
-                b = true;
             }
-            if(b == false){
+            else{
                 if (note.getText().contains(text)) {
                     search_result.add(note);
                 }

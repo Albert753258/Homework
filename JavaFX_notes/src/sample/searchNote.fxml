@@ -16,6 +16,7 @@
                 <TextArea fx:id="nameColumn" layoutX="110.0" layoutY="60.0" prefHeight="430.0" prefWidth="100.0" />
                 <TextArea fx:id="textColumn" layoutX="210.0" layoutY="60.0" prefHeight="430.0" prefWidth="250.0" />
                 <Button fx:id="viewButton" layoutX="511.0" layoutY="250.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="View note" />
+                <CheckBox fx:id="showDeletedNotes" layoutX="461.0" layoutY="300.0" mnemonicParsing="false" text="Show deleted notes" />
             </children>
         </Pane>
     </children>

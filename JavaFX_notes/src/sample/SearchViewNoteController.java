@@ -26,7 +26,8 @@ public class SearchViewNoteController {
     @FXML
     public TextArea textColumn;
 
-    public void initialize() {
+
+    public void initialize(){
         number.setText("Number");
         name.setText("Name");
         text.setText("Text");
@@ -44,8 +45,18 @@ public class SearchViewNoteController {
         nameColumn.setText(nameString);
         textColumn.setText(textString);
         int j = note.getId();
-        int number = Main.notes.indexOf(note);
         int number2 = SearchController.search_result.indexOf(note);
+
+        if(note.getDeleted() == false){
+            int number = Main.notes.indexOf(note);
+            initialize1(number2, note, number, j, i);
+        }
+        if(note.getDeleted() == true){
+            initialize2(number2, note, j, i);
+        }
+    }
+    public void initialize1(int number2, Note note, int number, int j, int i) {
+        removeButton.setText("Remove this note");
         removeButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -57,11 +68,6 @@ public class SearchViewNoteController {
                 SearchController.search_result.set(number2, note1);
                 Main.showNotesSearch(Main.controller1.textColumn, Main.controller1.nameColumn, Main.controller1.numberColumn);
                 Main.showNotes(Main.controller.textColumn, Main.controller.nameColumn, Main.controller.numberColumn);
-                try {
-                    Files.writeList();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
             }
         });
         saveButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -71,6 +77,37 @@ public class SearchViewNoteController {
                 String textString = TextAnalyze.textAnalyze(textColumn.getText());
                 Note note2 = new Note(false, j, i, nameString, textString);
                 Main.notes.set(number, note2);
+                Main.notes_deleted.set(j - 1, note2);
+                SearchController.search_result.set(number2, note2);
+                Main.showNotesSearch(Main.controller1.textColumn, Main.controller1.nameColumn, Main.controller1.numberColumn);
+                Main.showNotes(Main.controller.textColumn, Main.controller.nameColumn, Main.controller.numberColumn);
+            }
+        });
+    }
+    public void initialize2(int number2, Note note, int j, int i) {
+        removeButton.setText("Restore this note");
+        removeButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                note.setDeleted(false);
+                Main.notes_deleted.set(j - 1, note);
+                Main.notes.clear();
+                for(Note note: Main.notes_deleted){
+                    if(note.getDeleted() == false){
+                        Main.notes.add(note);
+                    }
+                }
+                Main.controller1.findNote();
+                Main.showNotesSearch(Main.controller1.textColumn, Main.controller1.nameColumn, Main.controller1.numberColumn);
+                Main.showNotes(Main.controller.textColumn, Main.controller.nameColumn, Main.controller.numberColumn);
+            }
+        });
+        saveButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                String nameString = TextAnalyze.textAnalyze(nameColumn.getText());
+                String textString = TextAnalyze.textAnalyze(textColumn.getText());
+                Note note2 = new Note(false, j, i, nameString, textString);
                 Main.notes_deleted.set(j - 1, note2);
                 SearchController.search_result.set(number2, note2);
                 Main.showNotesSearch(Main.controller1.textColumn, Main.controller1.nameColumn, Main.controller1.numberColumn);
