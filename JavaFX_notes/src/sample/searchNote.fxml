@@ -5,18 +5,20 @@
 
 <GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SearchController">
     <children>
-        <Pane fx:id="pane" prefHeight="500" prefWidth="700">
+        <Pane fx:id="pane" prefHeight="500" prefWidth="1000">
             <children>
-                <TextField fx:id="searchText" layoutX="461.0" layoutY="200.0" prefHeight="50.0" prefWidth="200.0" />
-                <TextField fx:id="numberOfView" layoutX="461.0" layoutY="250.0" prefHeight="50.0" prefWidth="50.0" />
-                <TextArea fx:id="number" layoutX="10.0" layoutY="10.0" prefHeight="50.0" prefWidth="100.0" text="Number" />
-                <TextArea fx:id="name" layoutX="110.0" layoutY="10.0" prefHeight="50.0" prefWidth="100.0" text="Name" />
-                <TextArea fx:id="text" layoutX="210.0" layoutY="10.0" prefHeight="50.0" prefWidth="250.0" text="Text" />
-                <TextArea fx:id="numberColumn" layoutX="10.0" layoutY="60.0" prefHeight="430.0" prefWidth="100.0" />
-                <TextArea fx:id="nameColumn" layoutX="110.0" layoutY="60.0" prefHeight="430.0" prefWidth="100.0" />
-                <TextArea fx:id="textColumn" layoutX="210.0" layoutY="60.0" prefHeight="430.0" prefWidth="250.0" />
-                <Button fx:id="viewButton" layoutX="511.0" layoutY="250.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="View note" />
-                <CheckBox fx:id="showDeletedNotes" layoutX="461.0" layoutY="300.0" mnemonicParsing="false" text="Show deleted notes" />
+                <TextField fx:id="searchText" layoutX="561.0" layoutY="200.0" prefHeight="50.0" prefWidth="200.0" />
+                <TextField fx:id="numberOfView" layoutX="561.0" layoutY="250.0" prefHeight="50.0" prefWidth="50.0" />
+                <TextArea fx:id="number" layoutX="110.0" layoutY="10.0" prefHeight="50.0" prefWidth="100.0" text="Number" />
+                <TextArea fx:id="name" layoutX="210.0" layoutY="10.0" prefHeight="50.0" prefWidth="100.0" text="Name" />
+                <TextArea fx:id="text" layoutX="310.0" layoutY="10.0" prefHeight="50.0" prefWidth="250.0" text="Text" />
+                <TextArea fx:id="numberColumn" layoutX="110.0" layoutY="60.0" prefHeight="430.0" prefWidth="100.0" />
+                <TextArea fx:id="nameColumn" layoutX="210.0" layoutY="60.0" prefHeight="430.0" prefWidth="100.0" />
+                <TextArea fx:id="textColumn" layoutX="310.0" layoutY="60.0" prefHeight="430.0" prefWidth="250.0" />
+                <Button fx:id="viewButton" layoutX="611.0" layoutY="250.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="View note" />
+                <CheckBox fx:id="showDeletedNotes" layoutX="561.0" layoutY="300.0" mnemonicParsing="false" text="Show deleted notes" />
+                <TextArea fx:id="deleted" layoutX="10.0" layoutY="10.0" prefHeight="50.0" prefWidth="100.0" text="Deleted" />
+                <TextArea fx:id="deletedColumn" layoutX="10.0" layoutY="60.0" prefHeight="430.0" prefWidth="100.0" />
             </children>
         </Pane>
     </children>

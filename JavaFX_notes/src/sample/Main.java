@@ -49,17 +49,25 @@ public class Main extends Application {
             }
         }
     }
-    public static void showNotesSearch(TextArea textColumn, TextArea nameColumn, TextArea numberColumn) {
+    public static void showNotesSearch(TextArea textColumn, TextArea nameColumn, TextArea numberColumn, TextArea deletedColumn) {
         int i = 1;
         textColumn.setText("");
         nameColumn.setText("");
         numberColumn.setText("");
+        deletedColumn.setText("");
+
         for(Note note: SearchController.search_result){
             String nameString = TextAnalyze.textDeAnalyze(note.getName());
             String textString = TextAnalyze.textDeAnalyze(note.getText());
             textColumn.appendText(textString + "\n");
             nameColumn.appendText(nameString + "\n");
             numberColumn.appendText(i + "\n");
+            if(note.getDeleted() == false){
+                deletedColumn.appendText("Not deleted" + "\n");
+            }
+            if(note.getDeleted() == true){
+                deletedColumn.appendText("Deleted" + "\n");
+            }
             i ++;
         }
     }

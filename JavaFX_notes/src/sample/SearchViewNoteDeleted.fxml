@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.2-internal" fx:controller="sample.SearchViewNoteDeletedController">
+    <children>
+        <Pane fx:id="pane" prefHeight="500" prefWidth="1000">
+            <children>
+                <Button fx:id="restoreButton" layoutX="400.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Restore this note" />
+                <TextArea fx:id="number" layoutX="150.0" layoutY="100.0" prefHeight="50.0" prefWidth="100.0" text="Number"/>
+                <TextArea fx:id="name" layoutX="250.0" layoutY="100.0" prefHeight="50.0" prefWidth="150.0" text="Name"/>
+                <TextArea fx:id="text" layoutX="400.0" layoutY="100.0" prefHeight="50.0" prefWidth="550.0" text="Text"/>
+                <TextArea fx:id="numberColumn" layoutX="150.0" layoutY="150.0" prefHeight="300.0" prefWidth="100.0" />
+                <TextArea fx:id="nameColumn" layoutX="250.0" layoutY="150.0" prefHeight="300.0" prefWidth="150.0" />
+                <TextArea fx:id="textColumn" layoutX="400.0" layoutY="150.0" prefHeight="300.0" prefWidth="550.0" />
+                <TextArea fx:id="deleted" layoutX="50.0" layoutY="100.0" prefHeight="50.0" prefWidth="100.0" text="Deleted" />
+                <TextArea fx:id="deletedColumn" layoutX="50.0" layoutY="150.0" prefHeight="300.0" prefWidth="100.0" />
+            </children>
+        </Pane>
+    </children>
+</GridPane>

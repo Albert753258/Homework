@@ -94,7 +94,7 @@ public class Controller implements Initializable {
                     e.printStackTrace();
                 }
                 stage.setTitle("Find note");
-                stage.setScene(new Scene(root, 700,500));
+                stage.setScene(new Scene(root, 1000,500));
                 stage.show();
             }
         });

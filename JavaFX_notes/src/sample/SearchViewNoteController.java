@@ -36,7 +36,6 @@ public class SearchViewNoteController {
         text.setEditable(false);
         numberColumn.setEditable(false);
         String s = Main.controller1.numberOfView.getText();
-        Main.controller1.numberOfView.setText("");
         int i = Integer.parseInt(s);
         Note note = SearchController.search_result.get(i - 1);
         String nameString = TextAnalyze.textDeAnalyze(note.getName());
@@ -46,17 +45,7 @@ public class SearchViewNoteController {
         textColumn.setText(textString);
         int j = note.getId();
         int number2 = SearchController.search_result.indexOf(note);
-
-        if(note.getDeleted() == false){
-            int number = Main.notes.indexOf(note);
-            initialize1(number2, note, number, j, i);
-        }
-        if(note.getDeleted() == true){
-            initialize2(number2, note, j, i);
-        }
-    }
-    public void initialize1(int number2, Note note, int number, int j, int i) {
-        removeButton.setText("Remove this note");
+        int number = Main.notes.indexOf(note);
         removeButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -66,7 +55,7 @@ public class SearchViewNoteController {
                 int number1 = Main.notes_deleted.indexOf(note);
                 Main.notes_deleted.set(number1, note1);
                 SearchController.search_result.set(number2, note1);
-                Main.showNotesSearch(Main.controller1.textColumn, Main.controller1.nameColumn, Main.controller1.numberColumn);
+                Main.showNotesSearch(Main.controller1.textColumn, Main.controller1.nameColumn, Main.controller1.numberColumn, Main.controller1.deletedColumn);
                 Main.showNotes(Main.controller.textColumn, Main.controller.nameColumn, Main.controller.numberColumn);
             }
         });
@@ -79,38 +68,7 @@ public class SearchViewNoteController {
                 Main.notes.set(number, note2);
                 Main.notes_deleted.set(j - 1, note2);
                 SearchController.search_result.set(number2, note2);
-                Main.showNotesSearch(Main.controller1.textColumn, Main.controller1.nameColumn, Main.controller1.numberColumn);
-                Main.showNotes(Main.controller.textColumn, Main.controller.nameColumn, Main.controller.numberColumn);
-            }
-        });
-    }
-    public void initialize2(int number2, Note note, int j, int i) {
-        removeButton.setText("Restore this note");
-        removeButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                note.setDeleted(false);
-                Main.notes_deleted.set(j - 1, note);
-                Main.notes.clear();
-                for(Note note: Main.notes_deleted){
-                    if(note.getDeleted() == false){
-                        Main.notes.add(note);
-                    }
-                }
-                Main.controller1.findNote();
-                Main.showNotesSearch(Main.controller1.textColumn, Main.controller1.nameColumn, Main.controller1.numberColumn);
-                Main.showNotes(Main.controller.textColumn, Main.controller.nameColumn, Main.controller.numberColumn);
-            }
-        });
-        saveButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                String nameString = TextAnalyze.textAnalyze(nameColumn.getText());
-                String textString = TextAnalyze.textAnalyze(textColumn.getText());
-                Note note2 = new Note(false, j, i, nameString, textString);
-                Main.notes_deleted.set(j - 1, note2);
-                SearchController.search_result.set(number2, note2);
-                Main.showNotesSearch(Main.controller1.textColumn, Main.controller1.nameColumn, Main.controller1.numberColumn);
+                Main.showNotesSearch(Main.controller1.textColumn, Main.controller1.nameColumn, Main.controller1.numberColumn, Main.controller1.deletedColumn);
                 Main.showNotes(Main.controller.textColumn, Main.controller.nameColumn, Main.controller.numberColumn);
             }
         });

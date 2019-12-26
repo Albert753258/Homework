@@ -43,6 +43,10 @@ public class SearchController implements Initializable {
     public TextField searchText;
     @FXML
     public CheckBox showDeletedNotes;
+    @FXML
+    public TextArea deleted;
+    @FXML
+    public TextArea deletedColumn;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -53,11 +57,11 @@ public class SearchController implements Initializable {
         textColumn.setEditable(false);
         nameColumn.setEditable(false);
         Main.controller1 = this;
-        for(int i = 1; i <= Main.notes.size(); i ++){
-            Note note = Main.notes.get(i - 1);
-            numberColumn.appendText(i + "\n");
+        for(Note note: Main.notes){
+            numberColumn.appendText(note.getNumber() + "\n");
             nameColumn.appendText(note.getName() + "\n");
             textColumn.appendText(note.getText() + "\n");
+            deletedColumn.appendText("Not deleted" + "\n");
         }
         searchText.textProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -66,11 +70,13 @@ public class SearchController implements Initializable {
                     nameColumn.setText("");
                     textColumn.setText("");
                     numberColumn.setText("");
+                    deletedColumn.setText("");
                     int i = 1;
                     for(Note note: Main.notes){
                         numberColumn.appendText(i + "\n");
                         nameColumn.appendText(note.getName() + "\n");
                         textColumn.appendText(note.getText() + "\n");
+                        deletedColumn.appendText("Not deleted" + "\n");
                         i ++;
                     }
                 }
@@ -90,17 +96,30 @@ public class SearchController implements Initializable {
             public void handle(ActionEvent event){
                 String s = numberOfView.getText();
                 Integer i = Integer.parseInt(s);
-                if (i == null){
-                }
-                else {
+                if (!(i == null)){
                     Stage stage = new Stage();
-                    try {
-                        Parent root = FXMLLoader.load(getClass().getResource("SearchViewNote.fxml"));
-                        stage.setTitle("");
-                        stage.setScene(new Scene(root, 700,500));
-                        stage.show();
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                    String s1 = numberOfView.getText();
+                    int i1 = Integer.parseInt(s1);
+                    Note note = SearchController.search_result.get(i1 - 1);
+                    if(note.getDeleted() == false){
+                        try {
+                            Parent root = FXMLLoader.load(getClass().getResource("SearchViewNote.fxml"));
+                            stage.setTitle("");
+                            stage.setScene(new Scene(root, 1000,500));
+                            stage.show();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    if(note.getDeleted() == true){
+                        try {
+                            Parent root = FXMLLoader.load(getClass().getResource("SearchViewNoteDeleted.fxml"));
+                            stage.setTitle("");
+                            stage.setScene(new Scene(root, 1000,500));
+                            stage.show();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             }
@@ -112,12 +131,19 @@ public class SearchController implements Initializable {
             nameColumn.setText("");
             textColumn.setText("");
             numberColumn.setText("");
+            deletedColumn.setText("");
             int i = 1;
             FindNotes.findNote(searchText.getText(), searchText.getText(), search_result, Main.notes);
             for(Note note: search_result){
                 numberColumn.appendText(i + "\n");
                 nameColumn.appendText(note.getName() + "\n");
                 textColumn.appendText(note.getText() + "\n");
+                if(note.getDeleted() == false){
+                    deletedColumn.appendText("Not deleted" + "\n");
+                }
+                if(note.getDeleted() == true){
+                    deletedColumn.appendText("Deleted" + "\n");
+                }
                 i ++;
             }
         }
@@ -125,12 +151,19 @@ public class SearchController implements Initializable {
             nameColumn.setText("");
             textColumn.setText("");
             numberColumn.setText("");
+            deletedColumn.setText("");
             int i = 1;
             FindNotes.findNote(searchText.getText(), searchText.getText(), search_result, Main.notes_deleted);
             for(Note note: search_result){
                 numberColumn.appendText(i + "\n");
                 nameColumn.appendText(note.getName() + "\n");
                 textColumn.appendText(note.getText() + "\n");
+                if(note.getDeleted() == false){
+                    deletedColumn.appendText("Not deleted" + "\n");
+                }
+                if(note.getDeleted() == true){
+                    deletedColumn.appendText("Deleted" + "\n");
+                }
                 i ++;
             }
         }
