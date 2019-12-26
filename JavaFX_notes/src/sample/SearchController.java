@@ -67,18 +67,7 @@ public class SearchController implements Initializable {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 if (newValue.equals("")) {
-                    nameColumn.setText("");
-                    textColumn.setText("");
-                    numberColumn.setText("");
-                    deletedColumn.setText("");
-                    int i = 1;
-                    for(Note note: Main.notes){
-                        numberColumn.appendText(i + "\n");
-                        nameColumn.appendText(note.getName() + "\n");
-                        textColumn.appendText(note.getText() + "\n");
-                        deletedColumn.appendText("Not deleted" + "\n");
-                        i ++;
-                    }
+                    findNote();
                 }
                 else {
                     findNote();

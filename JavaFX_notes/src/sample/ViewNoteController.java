@@ -50,13 +50,13 @@ public class ViewNoteController implements Initializable {
         textColumn.setText(textString);
         int j = note.getId();
         int number = Main.notes.indexOf(note);
+        int number1 = Main.notes_deleted.indexOf(note);
         removeButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 Note note1 = Main.notes.get(number);
                 note1.setDeleted(true);
                 Main.notes.remove(number);
-                int number1 = Main.notes_deleted.indexOf(note);
                 Main.notes_deleted.set(number1, note1);
                 Main.showNotes(Main.controller.textColumn, Main.controller.nameColumn, Main.controller.numberColumn);
                 
@@ -69,7 +69,7 @@ public class ViewNoteController implements Initializable {
                 String textString = TextAnalyze.textAnalyze(textColumn.getText());
                 Note note2 = new Note(false, j, i, nameString, textString);
                 Main.notes.set(number, note2);
-                Main.notes_deleted.set(j - 1, note2);
+                Main.notes_deleted.set(number1, note2);
                 Main.showNotes(Main.controller.textColumn, Main.controller.nameColumn, Main.controller.numberColumn);
             }
         });

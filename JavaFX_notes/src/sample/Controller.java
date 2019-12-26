@@ -68,9 +68,7 @@ public class Controller implements Initializable {
             public void handle(ActionEvent event){
                 String s = numberOfView.getText();
                 Integer i = Integer.parseInt(s);
-                if (i == null){
-                }
-                else {
+                if (!(i == null)){
                     Stage stage = new Stage();
                     try {
                         Parent root = FXMLLoader.load(getClass().getResource("ViewNote.fxml"));
