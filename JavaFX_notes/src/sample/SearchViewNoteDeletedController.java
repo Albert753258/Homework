@@ -38,9 +38,12 @@ public class SearchViewNoteDeletedController {
                 note.setDeleted(false);
                 Main.notes_deleted.set(j - 1, note);
                 Main.notes.clear();
+                int i = 1;
                 for(Note note: Main.notes_deleted){
                     if(note.getDeleted() == false){
+                        note.setNumber(i);
                         Main.notes.add(note);
+                        i++;
                     }
                 }
                 Main.controller1.search_result.set(number2, note);
